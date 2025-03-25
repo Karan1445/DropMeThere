@@ -1,0 +1,110 @@
+/* Suggestion Box Container */
+.suggestion-container {
+  width: 100%;
+  max-width: 400px; /* Limits width on larger screens */
+  margin: 0 auto;
+  position: relative;
+  padding: 0 16px; /* Padding for small screens */
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
+
+/* Input Styling */
+.suggestion-input {
+  width: 100%;
+  padding: 14px 18px; /* Larger padding for a comfortable input area */
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #171717;
+  color: #d3d3d3;
+  font-size: 18px;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box; /* Prevents overflow */
+}
+
+.suggestion-input:focus {
+  border: 1px solid #555;
+}
+
+/* Loading Text */
+.suggestion-loading {
+  color: #fff;
+  margin-top: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Suggestion List */
+.suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #171717;
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Suggestion Item */
+.suggestion-item {
+  padding: 14px 18px; /* Larger padding */
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+  color: #d3d3d3;
+  transition: background-color 0.3s ease, padding 0.2s ease;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .suggestion-container {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 12px; /* Prevent input from touching the edges */
+  }
+
+  .suggestion-input {
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 14px 16px; /* Adjust padding for mobile */
+  }
+
+  .suggestion-item {
+    font-size: 16px; /* Adjust text size for mobile */
+    padding: 14px 16px; /* Adjust padding for mobile */
+  }
+
+  .suggestion-loading {
+    font-size: 14px; /* Smaller loading text */
+  }
+}
+
+@media (max-width: 480px) {
+  .suggestion-container {
+    padding: 0 8px; /* Adjust side padding for very small screens */
+  }
+
+  .suggestion-input {
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 12px 14px; /* Adjust padding for mobile */
+  }
+
+  .suggestion-item {
+    font-size: 16px; /* Slightly larger dropdown text */
+    padding: 12px 14px; /* Adjust padding */
+  }
+
+  .suggestion-loading {
+    font-size: 14px; /* Adjust font size for loading text */
+  }
+}

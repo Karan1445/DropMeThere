@@ -1,0 +1,159 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #121212; /* Background color for contrast */
+  }
+  
+
+  .form {
+    
+  box-sizing: content-box; /* Reset box-sizing */
+  border-width: initial;    /* Reset border width */
+  border-style: initial;    /* Reset border style */
+  border-color: initial;    /* Reset border color */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Reduced gap between elements */
+    padding: 1.5em 2em; /* Reduced padding */
+    background: rgba(23, 23, 23, 0.7); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 20px; /* Adjusted border radius for proportion */
+    transition: 0.4s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Scales well for smaller screens */
+    max-width: 350px; /* Limits width on desktop */
+    margin: auto; /* Centers the form */
+}
+
+  #heading {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .input-icon {
+    height: 1.5em;
+    width: 1.5em;
+    fill: white;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+  }
+  .spanText{
+    color: #d3d3d3;
+  }
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5em;
+  }
+  
+  .button1,
+  .button2 {
+    padding: 0.7em 1.5em;
+    flex: 1; /* Ensure equal width */
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .button1:hover,
+  .button2:hover {
+    background-color: black;
+  }
+  
+  .button3 {
+    margin-top: 1em;
+    flex:1;
+     padding: 0.7em 1.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .button3:hover {
+    background-color: red;
+  }
+  
+  @media (max-width: 768px) {
+    #heading {
+      font-size: 1.2em;
+    }
+  
+    .form {
+      padding: 1.5em;
+    }
+  
+    .btn {
+      flex-direction: column;
+    }
+  
+    .button1,
+    .button2 {
+      flex: none;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #heading {
+      font-size: 1em;
+    }
+  
+    .button1,
+    .button2,
+    .button3 {
+      font-size: 0.9em;
+      padding: 0.6em;
+    }
+  }
+/* from toast */
+.Toastify__toast {
+  font-size: 16px; /* Default font size */
+}
+
+/* For smaller devices (mobile) */
+@media (max-width: 600px) {
+  .Toastify__toast {
+    font-size: 12px;  /* Smaller font size for mobile */
+    padding: 8px;     /* Less padding for mobile */
+  }
+}
+.error {
+  color: rgba(229, 110, 110, 0.823);
+  font-size: 14px;
+  margin-top: 1px;
+  display: block;
+}

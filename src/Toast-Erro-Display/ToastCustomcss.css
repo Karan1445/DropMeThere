@@ -1,0 +1,29 @@
+/* General Toastify styles */
+.Toastify__toast {
+    font-size: 12px; /* Default font size */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.8)
+  }
+  
+  /* Toast progress bar styling */
+  .Toastify__progress-bar {
+    background: linear-gradient(to right, #ff0000, #ff0000); /* Green gradient */
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 600px) {
+    .Toastify__toast {
+      font-size: 12px; /* Smaller font size for mobile */
+      padding: 5px;   /* Less padding for a compact look */
+      width: 90%;      /* Full-width toast on smaller screens */
+      margin: 5px auto; /* Center the toast */
+    }
+  
+    .Toastify__toast-container {
+    background-color: transparent;
+      width: 50%;     /* Ensure full-width for the toast container */
+      padding: 0;
+      margin-top: 10px;
+    }
+  }

@@ -1,0 +1,13 @@
+.olalogo {
+    width: 40px;  /* Set appropriate width */
+    height: 40px; /* Set appropriate height */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ola_Cabs_logo.svg/512px-Ola_Cabs_logo.svg.png'); /* Replace with correct logo path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%; /* Makes it circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+    border: 2px solid white; /* White border for contrast */
+    background-color: black; /* Background for better visibility */
+  }
+  

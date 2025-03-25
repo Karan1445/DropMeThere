@@ -1,0 +1,442 @@
+ body {
+  margin: 0;
+  padding: 0;
+ 
+  width: 100vw;
+  overflow: auto; /* Prevents full-page scrolling */
+}
+
+/* Dashboard container - Full height */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  overflow: auto; /* Ensures fixed layout */
+}
+
+/* Sidebar (fixed size) */
+.sidebar {
+  width: 250px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0; /* Keeps sidebar width fixed */
+  overflow-y: auto; /* Allows scrolling if sidebar content is too long */
+}
+
+/* Main content area (prevents jumping) */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #ecf0f1;
+  height: 100vh;
+ /*nables scrolling inside the main content */
+}
+.loading-text{
+  width: 82vw;
+}
+/* Grid layout for dashboard */
+.dashboard-grid {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Table container (Fixes empty tables breaking layout) */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling for large tables */
+  min-height: 150px; /* Prevents empty tables from collapsing */
+}
+
+/* Data table (fixes width & spacing issues) */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Keeps table columns stable */
+}
+
+/* Fix table headers */
+.data-table th {
+  background: #34495e;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  word-wrap: break-word;
+  white-space: normal; /* Allows text wrapping */
+}
+
+/* Fix table cells */
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  word-wrap: break-word;
+  white-space: normal; /* Allows text to wrap properly */
+  max-width: 200px; /* Prevents text from getting too large */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Style for empty tables */
+.data-table tbody:empty::before {
+  content: "No Data Available";
+  display: block;
+  text-align: center;
+  padding: 20px;
+  color: gray;
+}
+
+/* Table buttons */
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background: #f1c40f;
+}
+
+.delete-button {
+  background: #e74c3c;
+}
+.query-section {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.query-box {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.execute-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.execute-button:hover {
+  background-color: #0056b3;
+}
+
+.query-result {
+  margin-top: 20px;
+  max-height: 250px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background: #fff;
+}
+
+.query-table {
+  width: 100%;
+ 
+  border-collapse: collapse;
+}
+
+.query-table th, .query-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.query-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Fix modal overflow */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scrollable modal */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-height: 80vh;
+  overflow-y: auto; /* Ensures content scrolls inside modal */
+}
+/* Sidebar (Fixed, Always Visible) */
+.sidebar {
+  width: 250px;
+  height: 100vh; /* Ensures full height */
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0; /* Prevents sidebar from shrinking */
+  overflow-y: auto; /* Allows scrolling if content is too long */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Title */
+.sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Sidebar Buttons (Full Width) */
+.sidebar-button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  background: #34495e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+/* Active Button */
+.sidebar-button.active {
+  background: #2980b9;
+}
+
+/* Hover Effect */
+.sidebar-button:hover {
+  background: #1f618d;
+}
+.empty-table-message {
+  text-align: center;
+  font-size: 18px;
+  color: #7f8c8d;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  width: 100%;
+}
+/* Button Container */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Save Button */
+.save-button {
+  background: linear-gradient(90deg, #27ae60, #1e8449);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  flex: 1;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.save-button:hover {
+  background: linear-gradient(90deg, #2ecc71, #239b56);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.5);
+}
+
+/* Cancel Button */
+.cancel-button {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  flex: 1;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+.cancel-button:hover {
+  background: linear-gradient(90deg, #ff6b6b, #d63031);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .save-button,
+  .cancel-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Modal Header */
+.modal-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(90deg, #2980b9, #2c3e50);
+  padding: 12px;
+  border-radius: 8px 8px 0 0;
+  letter-spacing: 1px;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #e74c3c;
+  background: none;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.modal-close:hover {
+  color: #c0392b;
+}
+
+/* Form Fields */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  background: #f9f9f9;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+  background: #ecf0f1;
+}
+
+/* Action Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.modal-content h2 {
+  font-size: 22px;
+  color: #2c3e50;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 8px;
+}/* Search and Download Container */
+.search-download-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  gap: 20px; /* Adds space between search box and download button */
+}
+
+/* Ensuring both elements have proper spacing */
+.search-box {
+  flex: 1; /* Takes available space */
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.search-box:focus {
+  position: sticky;
+  border-color: #007bff;
+}
+
+/* Download Button */
+.download-button {
+  padding: 8px 16px 8px 8px;
+  background-color: #29853f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+  margin-left: 20px; /* Additional spacing between search box and button */
+}
+
+.download-button:hover {
+  background-color: #218838;
+}

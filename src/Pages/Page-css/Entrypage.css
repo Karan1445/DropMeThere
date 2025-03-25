@@ -1,0 +1,243 @@
+/* Prevent scrolling on mobile */
+body, html {
+  margin: 0;
+  padding: 0;
+ 
+  height: 100%;
+}
+
+.entry-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  color: white;
+  text-align: center;
+  position: relative; /* Ensures proper layering with Spline */
+  z-index: 1; /* Bring content above the background */
+}
+
+h1 {
+  font-size: 5vw; /* Adjusts based on the viewport width */
+  font-weight: bolder;
+  margin: 0; /* Removes default margin */
+  white-space: nowrap; /* Ensures the text stays in one line */
+  overflow: hidden; /* Hides any overflowed text */
+  text-overflow: ellipsis; /* Adds "..." if the text overflows */
+  animation: sparkle 3s alternate ;
+}
+
+/* Subtle rainbow color animation for the "W" */
+.rainbow-text {
+
+  background: linear-gradient(
+    0deg,
+    rgb(245, 0, 249),       /* Soft green */
+    rgb(0, 0, 255),     /* Soft pink */
+    rgb(245, 0, 249),     /* Blue */
+    rgb(255, 0, 0)   /* Violet */
+  ); /* Softer rainbow gradient with slight transparency */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+  animation: subtle-rainbow 5s ease-in infinite; /* Smooth animation */
+}
+
+/* Subtle rainbow animation effect */
+@keyframes subtle-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+p {
+  font-size: 3vw; /* Adjust the font size of the paragraph */
+  margin-top: 10px; /* Space between heading and paragraph */
+  white-space: nowrap; /* Ensures the text stays in one line */
+  overflow: hidden; /* Prevent text from overflowing */
+  text-overflow: ellipsis; /* Adds "..." if the text overflows */
+}
+.spline-background {
+  position: fixed; /* Ensures it stays as a background */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -1; /* Keeps it behind other elements */
+  overflow: hidden; /* Hides any overflow */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 7vw; /* Slightly reduce font size on smaller screens */
+  }
+
+  p {
+    font-size: 4.5vw; /* Slightly reduce font size of paragraph */
+  }
+
+  /* Make 'Welcome' appear on a new line and the second text below it */
+  .entry-page h1 {
+    white-space: normal; /* Allow wrapping of 'Welcome' text */
+  }
+
+  /* Ensure that paragraph appears under the 'Welcome' text on mobile */
+  .entry-page p {
+    margin-top: 15px; /* Increase space between heading and paragraph */
+  }
+}
+
+@keyframes sparkle {
+    0% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.1); 
+    }
+    5% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.2); 
+    }
+    10% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.3); 
+    }
+    15% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.4); 
+    }
+    20% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.5); 
+    }
+    25% {
+      text-shadow: 1px 1px 19px rgba(255, 255, 255, 0.6); 
+    }
+    30% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7); 
+    }
+    35% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8); 
+    }
+    40% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.9); 
+    }
+    45% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 1); 
+    }
+    50% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.9); 
+    }
+    55% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8); 
+    }
+    60% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7); 
+    }
+    65% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.6); 
+    }
+    70% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5); 
+    }
+    75% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.4); 
+    }
+    80% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3); 
+    }
+    85% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2); 
+    }
+    90% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1); 
+    }
+    95% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2); 
+    }
+    100% {
+      text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1); 
+    }
+  }
+@media (max-width: 480px) {
+  h1 {
+    font-size: 10vw; /* Slightly reduce font size on very small screens */
+  }
+
+  p {
+    font-size: 5.5vw; /* Slightly reduce font size of paragraph on very small screens */
+  }
+
+  /* Make 'Welcome' appear on a new line and the second text below it */
+  .entry-page h1 {
+    white-space: normal; /* Allow wrapping of 'Welcome' text */
+  }
+
+  /* Ensure that paragraph appears under the 'Welcome' text on mobile */
+  .entry-page p {
+    margin-top: 15px; /* Increase space between heading and paragraph */
+  }
+}
+/*Buttton animation*/
+.start-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px; 
+    border-radius: 50px;
+    font-size: 1rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .start-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; 
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .start-button:hover {
+    background-color: #555;
+  }
+  
+  .start-button:active {
+    background-color: #222; 
+    transform: scale(0.95); 
+  }
+  
+  .start-button.clicked::before {
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5), transparent);
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) { 
+    .start-button {
+      padding: 8px 16px;  
+      font-size: 0.8rem; 
+    }
+  }@media (max-width: 768px) {
+    .spline-background canvas {
+      width: 100%; /* Adjust canvas width for tablets */
+      height: auto; /* Keep aspect ratio */
+    }
+  }
+  .spline-background canvas {
+    width: 100%; /* Full width for mobile and desktop */
+    height: 100%; /* Full height for mobile and desktop */
+    object-fit: cover; /* Ensures the canvas covers the screen without distortion */
+  }
+  @media (max-width: 480px) {
+    .spline-background canvas {
+      width: 100%; /* Ensure the canvas spans the full width */
+      height: 100%; /* Ensure the canvas spans the full height */
+      object-fit: cover; /* Ensures it covers the screen without distortion */
+    }
+  }
